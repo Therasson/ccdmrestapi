@@ -8,6 +8,9 @@ use App\Http\Controllers\Api\V1\CenterOfInterest;
 use App\Http\Controllers\Api\V1\SpaceCategoryController;
 use App\Http\Controllers\Api\V1\SpaceController;
 use App\Http\Controllers\Api\V1\MenuController;
+use App\Http\Controllers\Api\V1\RecommendationController;
+use App\Http\Controllers\Api\V1\ActivityController;
+use App\Http\Controllers\Api\V1\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,11 +35,13 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
         Route::resource('spacecategories', SpaceCategoryController::class);
         Route::resource('spaces', SpaceController::class);
         Route::resource('menus', MenuController::class);
+        Route::resource('recommendations', RecommendationController::class);
+        Route::resource('activities', ActivityController::class);
 
 
+        /** ROUTES ADMIN */
+        Route::get('/users', [AdminController::class, 'index']);
 
     Route::post('logout', [AuthController::class, 'logout']);
 
 });
-
-Route::get('/', [CoreController::class, 'home'])->middleware('auth:sanctum');
