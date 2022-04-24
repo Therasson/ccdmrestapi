@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('space_categories', function (Blueprint $table) {
+        Schema::create('night_bars', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('slug');
-            $table->integer('etat');
+            $table->foreignId('space_id')->constrained('spaces')
+                                                ->onUpdate('cascade')
+                                                ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('space_categories');
+        Schema::dropIfExists('night_bars');
     }
 };

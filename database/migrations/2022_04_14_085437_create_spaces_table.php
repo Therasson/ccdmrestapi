@@ -19,9 +19,6 @@ return new class extends Migration
             $table->foreignId('town_id')->constrained('towns')
                                                 ->onUpdate('cascade')
                                                 ->onDelete('cascade');
-            $table->foreignId('space_categories_id')->constrained('space_categories')
-                                                ->onUpdate('cascade')
-                                                ->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users')
                                                 ->onUpdate('cascade')
                                                 ->onDelete('cascade');
