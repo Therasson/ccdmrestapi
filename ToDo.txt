@@ -1,0 +1,5 @@
+1- notation des espaces
+2- recupération des utilisateurs avec leur rôles et leur publications
+    (space, recommendation, notes,)
+3- reservation d'espace,
+4- ajout des images sur les espaces
