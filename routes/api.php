@@ -9,7 +9,8 @@ use App\Http\Controllers\Api\V1\UserController;
 use App\Http\Controllers\Api\V1\SpaceController;
 use App\Http\Controllers\Api\V1\CenterOfInterest;
 use App\Http\Controllers\Api\V1\BookingController;
-
+use App\Http\Controllers\Api\V1\RecommendationController;
+use App\Http\Controllers\Api\V1\CoreController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -23,22 +24,25 @@ use App\Http\Controllers\Api\V1\BookingController;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
+Route::get('login', [AuthController::class, 'loginForm']);
 
 
-Route::group(['middleware' => ['auth:sanctum']], function(){
+//Route::group(['middleware' => ['auth:sanctum']], function(){
 
 
-        Route::resource('towns', TownController::class);
+    Route::get('towns', [CoreController::class, 'index']);
+
+        //Route::resource('towns', TownController::class);
         Route::resource('centerofinterests', CenterOfInterest::class);
         Route::resource('spaces', SpaceController::class);
         Route::resource('menus', MenuController::class);
         Route::resource('bookings', BookingController::class);
-
+        Route::resource('recommendations', RecommendationController::class);
 
         Route::resource('users', UserController::class);
 
     Route::post('logout', [AuthController::class, 'logout']);
 
-});
+//});
 
 Route::get('/', [CoreController::class, 'home'])->middleware('auth:sanctum');
