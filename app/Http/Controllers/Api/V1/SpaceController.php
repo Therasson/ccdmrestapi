@@ -75,8 +75,14 @@ class SpaceController extends Controller
     public function show($id)
     {
         // retourner les espaces avec les resommandations, les avis
+        $space = Space::where('id', $id)
+            ->with('images', function($galleries) { return $galleries->get(); })
+            ->with('menus', function ($menus) { return $menus->get(); })
+            ->with('recommendations', function ($recommendations) { return $recommendations->get(); })
+            ->get();
+
         return response([
-            'space' => Space::where('id', $id)->get()
+            'space' => $space,
         ], 200);
     }
 

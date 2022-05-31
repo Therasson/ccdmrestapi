@@ -5,8 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\TownController;
 use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\CenterOfInterest;
-use App\Http\Controllers\Api\V1\SpaceCategoryController;
 use App\Http\Controllers\Api\V1\SpaceController;
+    use App\Http\Controllers\Api\V1\GalleryController;
+    use App\Http\Controllers\Api\V1\HotelController;
+    /*use App\Http\Controllers\Api\V1\RoomController;
+    use App\Http\Controllers\Api\V1\OutdoorController;
+    use App\Http\Controllers\Api\V1\RestaurantController;
+    use App\Http\Controllers\Api\V1\NightClubController;*/
 use App\Http\Controllers\Api\V1\MenuController;
 use App\Http\Controllers\Api\V1\RecommendationController;
 use App\Http\Controllers\Api\V1\ActivityController;
@@ -32,8 +37,10 @@ Route::group(['middleware' => ['auth:sanctum']], function(){
 
         Route::resource('towns', TownController::class);
         Route::resource('centerofinterests', CenterOfInterest::class);
-        Route::resource('spacecategories', SpaceCategoryController::class);
         Route::resource('spaces', SpaceController::class);
+            Route::resource('hotels', HotelController::class);
+            Route::resource('gallery', GalleryController::class);
+
         Route::resource('menus', MenuController::class);
         Route::resource('recommendations', RecommendationController::class);
         Route::resource('activities', ActivityController::class);

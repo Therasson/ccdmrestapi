@@ -22,6 +22,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')
                                                 ->onUpdate('cascade')
                                                 ->onDelete('cascade');
+            $table->foreignId('promote_id')->constrained('promotes')
+                                                ->onUpdate('cascade')
+                                                ->onDelete('cascade');
             $table->string('district')->nullable();
             $table->string('phone')->nullable();
             $table->string('longitude')->nullable();

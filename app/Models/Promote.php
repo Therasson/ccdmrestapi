@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Image extends Model
+class Promote extends Model
 {
     use HasFactory;
 
@@ -13,18 +13,17 @@ class Image extends Model
      * @var string[]
      */
     protected $fillable = [
-        'space_id',
-        'alt',
-        'url',
+        'name',
+        'slug',
         'etat'
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return mixed
      */
-    public function space()
+    public function spaces()
     {
-        return $this->belongsTo(Space::class);
+        return $this->hasMany(Space::class);
     }
 
 }

@@ -12,7 +12,6 @@ class Space extends Model
     protected $fillable = [
         'name',
         'town_id',
-        'space_categories_id',
         'user_id',
         'district',
         'phone',
@@ -39,4 +38,34 @@ class Space extends Model
     }
 
     //jointure avec la table image Polymorph
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function promote()
+    {
+        return $this->belongsTo(Promote::class);
+    }
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function hotel()
+    {
+        return $this->hasOne(Hotel::class);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
+
+    public function recommendations()
+    {
+        return $this->hasMany(Recommendation::class);
+    }
 }

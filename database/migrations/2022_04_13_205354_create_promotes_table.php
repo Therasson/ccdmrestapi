@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('promotes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('space_id')->constrained('spaces')
-                                ->onUpdate('cascade')
-                                ->onDelete('cascade');
-            $table->string('alt')->nullable();
-            $table->string('url');
-            $table->integer('etat');
+            $table->string('name');
+            $table->string('slug');
+            $table->integer('etat')->default(0);
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('promotes');
     }
 };

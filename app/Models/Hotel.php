@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Hotel extends Model
 {
     use HasFactory;
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function space()
+    {
+        return $this->belongsTo(Space::class);
+    }
 }

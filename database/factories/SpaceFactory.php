@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Town;
 use App\Models\User;
+use App\Models\Promote;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -24,6 +25,7 @@ class SpaceFactory extends Factory
             'user_id' => User::all()->random()->id,
             'district' => $this->faker->address(),
             'phone' => $this->faker->phoneNumber(),
+            'promote_id' => Promote::all()->random()->id,
             'longitude' => $this->faker->latitude($min = -90, $max = 90),
             'latitude' => $this->faker->longitude($min = -180, $max = 180),
             'etat' => 1

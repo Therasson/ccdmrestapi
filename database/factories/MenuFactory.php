@@ -22,7 +22,7 @@ class MenuFactory extends Factory
             'space_id' => Space::all()->random()->id,
             'number_of_person' => $this->faker->randomNumber(2, false),
             'prix' => $this->faker->randomNumber(4, false),
-            'description' => $this->faker->randomHtml(),
+            'description' => $this->faker->paragraph,
             'etat'=> 1
         ];
     }
